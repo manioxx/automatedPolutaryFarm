@@ -2,11 +2,29 @@ import urequests as requests
 import network
 import machine
 import ujson
-
+import time
 
 # Define the GPIO pin for the built-in LED
 led_pin = machine.Pin(2, machine.Pin.OUT)
-
+led_pin.off() 
+def ledBlinkWhenConnectedWALN():
+    time.sleep(.1)
+    led_pin.on()
+    time.sleep(.1)
+    led_pin.off()
+    time.sleep(.1)
+    led_pin.on()
+    time.sleep(.1)
+    led_pin.off()
+    time.sleep(.1)
+    led_pin.on()
+    time.sleep(.1)
+    led_pin.off()
+    time.sleep(.1)
+    led_pin.on()
+    time.sleep(1)
+    led_pin.off()
+    
 
 # Function to connect to Wi-Fi
 def connect_to_wifi(ssid, password):
@@ -20,7 +38,7 @@ def connect_to_wifi(ssid, password):
     print("Connected to Wi-Fi")
 
 # Firebase Realtime Database URL
-FIREBASE_URL = "https://chicken-farm-2af5d-default-rtdb.firebaseio.com/switches.json"
+FIREBASE_URL = "..."
 
 # Function to fetch data from Firebase
 def fetch_data_from_firebase(url):
@@ -31,8 +49,8 @@ def fetch_data_from_firebase(url):
         return None
 
 # Configure your Wi-Fi credentials
-WIFI_SSID = "Moon"
-WIFI_PASSWORD = "NO SIGNAL"
+WIFI_SSID = "..."
+WIFI_PASSWORD = "..."
 
 # Connect to Wi-Fi
 connect_to_wifi(WIFI_SSID, WIFI_PASSWORD)
