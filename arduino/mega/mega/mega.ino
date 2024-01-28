@@ -3,7 +3,7 @@
 DHT11 dht11(2);
 const int IR = 3;
 const int FLAME = 4;
-const int BUZZER = 45;
+const int BUZZER = 53;
 char i;
 
 // Pin configuration for L298N motor driver
@@ -94,6 +94,7 @@ void loop()
 
 void sensorsRead() 
 {
+  digitalWrite(BUZZER,HIGH);
   // Declare sensorsVal as a String
   String sensorsVal = "";
 
@@ -118,14 +119,14 @@ void sensorsRead()
 
   // Print sensorsVal to Serial Monitor
   Serial.println(sensorsVal);
-  if(FlameValue ==1)
-  {
-    digitalWrite(BUZZER,HIGH);
-  }
-  else
+  /*if(FlameValue != 1)
   {
     digitalWrite(BUZZER,LOW);
   }
+  else
+  {
+    digitalWrite(BUZZER,HIGH);
+  }*/
 
 }
 
